@@ -1,0 +1,17 @@
+Create Index:
+
+curl -X PUT "http://10.20.18.3:9200/new-index?pretty" -H 'Content-Type: application/json' -d '{"settings": {"number_of_shards": 5, "number_of_replicas": 1}}'
+This command creates a new index named "new-index" with 5 shards and 1 replica. Adjust the settings as per your requirements.
+
+Verify Index:
+
+curl -X GET "http://10.20.18.3:9200/new-index/_settings?pretty"
+
+
+This command retrieves the settings for the "new-index" to verify that it was created successfully.
+
+Set Replica Count to 0:
+
+
+curl -X PUT "http://10.20.18.3:9200/new-index/_settings?pretty" -H 'Content-Type: application/json' -d '{"index": {"number_of_replicas": 0}}'
+This command sets the replica count for "new-index" to 0, effectively disabling replication.
