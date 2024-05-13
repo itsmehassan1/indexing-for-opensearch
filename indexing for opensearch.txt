@@ -15,3 +15,6 @@ Set Replica Count to 0:
 
 curl -X PUT "http://10.20.18.3:9200/new-index/_settings?pretty" -H 'Content-Type: application/json' -d '{"index": {"number_of_replicas": 0}}'
 This command sets the replica count for "new-index" to 0, effectively disabling replication.
+
+Make shards value set to Zero for resolving issue yellow to green 
+curl -X PUT -u admin:admin "http://10.10.43.107:9200/new-index?pretty" -H 'Content-Type: application/json' -d '{"settings": {"number_of_shards": 0}}'
